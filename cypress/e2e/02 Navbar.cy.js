@@ -87,4 +87,26 @@ describe("Test suite to check all the links in the navbar", () => {
       .eq(0)
       .should("contain.text", "GBP");
   });
+
+  it("should be able to click on the login button", () => {
+    cy.get(".bg-light > .m-0")
+      .click()
+      .then(() => {
+        cy.contains("Login").click();
+      });
+
+    // Check if the page is redirected to the correct page
+    cy.url().should("include", "/login");
+  });
+
+  it("should be able to click on Signup button", () => {
+    cy.get(".bg-light > .m-0")
+      .click()
+      .then(() => {
+        cy.contains("Signup").click();
+      });
+
+    // Check if the page is redirected to the correct page
+    cy.url().should("include", "/signup");
+  });
 });
