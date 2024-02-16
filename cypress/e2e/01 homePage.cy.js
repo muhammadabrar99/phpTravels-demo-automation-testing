@@ -14,18 +14,4 @@ describe("template spec", () => {
   it("logo should be visible to users", () => {
     cy.get(".d-flex").eq(0).should("be.visible");
   });
-
-  it("should be able to click on Flights", () => {
-    cy.get(".header_menu").find("li").eq(0).click();
-
-    // Check if the page is redirected to the correct page
-    cy.url().should("include", "/flights");
-  });
-
-  it.only("should be able to click on Hotels", () => {
-    cy.get(".header_menu").find("li").eq(1).click();
-
-    // Check if the page is redirected to the correct page
-    cy.url().should("include", "/hotels");
-  });
 });

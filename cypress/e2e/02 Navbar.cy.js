@@ -1,4 +1,5 @@
 /// <refrence types="cypress" />
+require("cypress-xpath");
 
 describe("Test suite to check all the links in the navbar", () => {
   beforeEach(() => {
@@ -55,16 +56,35 @@ describe("Test suite to check all the links in the navbar", () => {
         cy.get(".hero_text > h4").should("have.text", "رحلتك تبدأ هنا!");
       });
 
-      // Click on the language dropdown again and select English
-      cy.get(".nav-item--right")
-        .find("[class='nav-item dropdown']")
-        .eq(0)
-        .click()
-        .then(() => {
-          cy.get("[data-bs-popper='static']").find("a").eq(0).click();
+    // Click on the language dropdown again and select English
+    cy.get(".nav-item--right")
+      .find("[class='nav-item dropdown']")
+      .eq(0)
+      .click()
+      .then(() => {
+        cy.get("[data-bs-popper='static']").find("a").eq(0).click();
 
-          // Check if the page is redirected to the correct page
-          cy.get(".hero_text > h4").should("have.text", "Your Trip Starts Here!");
-        });
+        // Check if the page is redirected to the correct page
+        cy.get(".hero_text > h4").should("have.text", "Your Trip Starts Here!");
+      });
+  });
+
+  // check the currency dropdown
+  it("should be able to click on the currency dropdown", () => {
+    cy.get(".nav-item--right")
+      .find("[class='nav-item dropdown']")
+      .eq(1)
+      .click()
+      .then(() => {
+        cy.get(
+          ":nth-child(2) > .dropdown-menu > :nth-child(1) > .dropdown-item"
+        ).click();
+      });
+
+    // Check if the currency is changed
+    cy.get("[class='fadeout waves-effect']")
+      .find(".price__num")
+      .eq(0)
+      .should("contain.text", "GBP");
   });
 });
