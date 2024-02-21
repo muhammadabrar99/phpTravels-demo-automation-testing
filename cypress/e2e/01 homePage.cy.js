@@ -5,9 +5,6 @@ describe("template spec", () => {
     cy.viewport(1440, 900);
     cy.visit("https://phptravels.net/");
     cy.wait(2000);
-  });
-
-  it("click on cookies button", () => {
     cy.get(".cookies_bg").contains("Hide").click();
   });
 

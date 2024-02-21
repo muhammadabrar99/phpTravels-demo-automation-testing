@@ -13,6 +13,20 @@ describe("Test suite to check all the links in the navbar", () => {
 
     // Check if the page is redirected to the correct page
     cy.url().should("include", "/flights");
+
+    // click on back arrow to
+    cy.go("back");
+    // check if redirected to home page
+    cy.location("pathname").should("eq", "/");
+
+    // click on flights
+    cy.get(".header_menu").find("li").eq(0).click();
+    // check if redirected to flights page
+    cy.location("pathname").should("eq", "/flights");
+    // Click on logo to go back to home page
+    cy.get(".d-flex").eq(0).click();
+    // check if redirected to home page
+    cy.location("pathname").should("eq", "/");
   });
 
   it("should be able to click on Hotels", () => {
@@ -20,6 +34,20 @@ describe("Test suite to check all the links in the navbar", () => {
 
     // Check if the page is redirected to the correct page
     cy.url().should("include", "/hotels");
+
+    // click on back arrow to
+    cy.go("back");
+    // check if redirected to home page
+    cy.location("pathname").should("eq", "/");
+
+    // click on flights
+    cy.get(".header_menu").find("li").eq(0).click();
+    // check if redirected to flights page
+    cy.location("pathname").should("eq", "/hotels");
+    // Click on logo to go back to home page
+    cy.get(".d-flex").eq(0).click();
+    // check if redirected to home page
+    cy.location("pathname").should("eq", "/");
   });
 
   it("should be able to click on Tours", () => {
@@ -27,6 +55,20 @@ describe("Test suite to check all the links in the navbar", () => {
 
     // Check if the page is redirected to the correct page
     cy.url().should("include", "/tours");
+
+    // click on back arrow to
+    cy.go("back");
+    // check if redirected to home page
+    cy.location("pathname").should("eq", "/");
+
+    // click on flights
+    cy.get(".header_menu").find("li").eq(0).click();
+    // check if redirected to flights page
+    cy.location("pathname").should("eq", "/tours");
+    // Click on logo to go back to home page
+    cy.get(".d-flex").eq(0).click();
+    // check if redirected to home page
+    cy.location("pathname").should("eq", "/");
   });
 
   it("should be able to click on Cars", () => {
@@ -34,6 +76,20 @@ describe("Test suite to check all the links in the navbar", () => {
 
     // Check if the page is redirected to the correct page
     cy.url().should("include", "/cars");
+
+    // click on back arrow to
+    cy.go("back");
+    // check if redirected to home page
+    cy.location("pathname").should("eq", "/");
+
+    // click on flights
+    cy.get(".header_menu").find("li").eq(0).click();
+    // check if redirected to flights page
+    cy.location("pathname").should("eq", "/cars");
+    // Click on logo to go back to home page
+    cy.get(".d-flex").eq(0).click();
+    // check if redirected to home page
+    cy.location("pathname").should("eq", "/");
   });
 
   it("should be able to click on Blogs", () => {
@@ -41,6 +97,20 @@ describe("Test suite to check all the links in the navbar", () => {
 
     // Check if the page is redirected to the correct page
     cy.url().should("include", "/blogs");
+
+    // click on back arrow to
+    cy.go("back");
+    // check if redirected to home page
+    cy.location("pathname").should("eq", "/");
+
+    // click on flights
+    cy.get(".header_menu").find("li").eq(0).click();
+    // check if redirected to flights page
+    cy.location("pathname").should("eq", "/blogs");
+    // Click on logo to go back to home page
+    cy.get(".d-flex").eq(0).click();
+    // check if redirected to home page
+    cy.location("pathname").should("eq", "/");
   });
 
   // Check the language dropdown
