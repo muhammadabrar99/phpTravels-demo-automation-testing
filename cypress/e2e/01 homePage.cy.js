@@ -76,7 +76,7 @@ describe("template spec", () => {
     );
   });
 
-  it("Check flights Tab", () => {
+  it.only("Check flights Tab", () => {
     // click on Round Trip
     cy.get("#round-trip").click();
     cy.get("#return_date").should("be.visible");
@@ -124,5 +124,24 @@ describe("template spec", () => {
       .eq(1)
       .select("LHE", { force: true })
       .should("have.value", "LHE");
+
+    // Select Date
+    cy.get("#departure").click().clear().type("01-03-2024");
+
+    // Select travellers
+    cy.get("[data-toggle='dropdown']")
+      .eq(0)
+      .click()
+      .then(() => {
+        cy.get(".qtyInc").eq(0).click();
+        cy.get("#fadults").should("have.value", "2");
+      });
+
+    // Click on Search
+    cy.get("#onereturn > .col-lg-1").click();
+    // Chreck if redirected to correct page
+    // cy.url().should("include", "oneway/");
+
+    // cy.get(".mt-5").click();
   });
 });
